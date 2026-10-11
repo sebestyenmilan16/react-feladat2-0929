@@ -23,14 +23,12 @@ export default class CartForm extends React.Component {
         console.log("e.target[2].value", e.target[2].value)
         console.log("e.target[3].value", e.target[3].value)
 
-        // process form data
         this.props.onBasketRowData(this.state)
 
         this.resetForm()
     }
 
     handleProductNameChange = (e) => {
-        //console.log("handleProductNameChange e", e)
         this.setState({productname: e.target.value})
     }
     handleProductPriceChange = (e) => {
@@ -41,17 +39,17 @@ export default class CartForm extends React.Component {
     }
 
     componentDidUpdate = () => {
-        // console.log("componentDidUpdate state", this.state)
+        
     }
 
     render() {
         return <form method="POST" onSubmit={this.handleFormSubmit}>
             <label htmlFor="productname">Termék neve: </label>
-            <input type="text" name="productname" placeholder="pl. Labubu plüss" onChange={this.handleProductNameChange} value={this.state.productname}></input>
+            <input type="text" name="productname" onChange={this.handleProductNameChange} value={this.state.productname}></input>
             <br />
 
             <label htmlFor="productprice">Ár: </label>
-            <input type="number" name="productprice" placeholder="pl. 1499" onChange={this.handleProductPriceChange} value={this.state.productprice}></input>            
+            <input type="number" name="productprice" placeholder="pl. 1000" onChange={this.handleProductPriceChange} value={this.state.productprice}></input>            
             <br />
 
             <label htmlFor="quantity">Mennyiség: </label>
